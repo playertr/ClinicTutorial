@@ -8,7 +8,8 @@ function [ h,t ] = impulse_response( x, y, fs )
 
 [X,f] = fdomain(x,fs);
 [Y,f] = fdomain(y,fs);
-H = X./Y;   % the calculated frequency response
+H = Y./X;   % the calculated frequency response
+% I fixed this, it was X./ Y before. Tim Player, 2/4/19
 [h,t] = tdomain(H,fs);
 
 end
